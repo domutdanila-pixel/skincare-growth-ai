@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080b10" />
+  <meta name="description" content="SkinGrow AI helps US Shopify skincare and beauty brands improve product page conversions and ad compliance with 48-hour AI-powered growth sprints." />
+  <title>SkinGrow AI — Turn Traffic Into Revenue</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            apex: {
+              black: '#080b10',
+              panel: '#10151e',
+              gold: '#d6ad65',
+              muted: '#929baa'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: #080b10;
+      color: #f4f4f5;
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .font-display { font-family: 'Manrope', sans-serif; }
+
+    .gold-text {
+      background: linear-gradient(110deg, #f3d9a1, #d6ad65 55%, #f4dfb5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .gold-button {
+      background: linear-gradient(110deg, #e9c783, #c79a50);
+      color: #101116;
+      box-shadow: 0 0 30px rgba(214,173,101,.13);
+      transition: all .25s ease;
+    }
+
+    .gold-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 35px rgba(214,173,101,.3);
+    }
+
+    .outline-button {
+      border: 1px solid #343b47;
+      transition: all .25s ease;
+    }
+
+    .outline-button:hover {
+      border-color: #d6ad65;
+      background: rgba(214,173,101,.06);
+      transform: translateY(-2px);
+    }
+
+    .glass {
+      background: linear-gradient(145deg, rgba(20,27,38,.92), rgba(12,16,24,.96));
+      border: 1px solid rgba(255,255,255,.075);
+      box-shadow: 0 15px 60px rgba(0,0,0,.16);
+    }
+
+    .feature-card {
+      transition: all .3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(214,173,101,.35);
+      box-shadow: 0 20px 50px rgba(0,0,0,.25);
+    }
+
+    .hero-glow {
+      background: radial-gradient(circle, rgba(214,173,101,.12) 0%, rgba(214,173,101,0) 70%);
+    }
+
+    .grid-pattern {
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 55px 55px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+    }
+
+    .step-line {
+      background: linear-gradient(to bottom, #d6ad65, rgba(214,173,101,.05));
+    }
+
+    .input-field {
+      background: #0b1018;
+      border: 1px solid #303846;
+      color: white;
+      outline: none;
+      transition: border .2s;
+    }
+
+    .input-field:focus {
+      border-color: #d6ad65;
+      box-shadow: 0 0 0 3px rgba(214,173,101,.08);
+    }
+
+    .fade-up {
+      animation: fadeUp .8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .delay-1 { animation-delay: .15s; }
+    .delay-2 { animation-delay: .3s; }
+    .delay-3 { animation-delay: .45s; }
+
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: block; }
+
+    ::selection {
+      background: #d6ad65;
+      color: #080b10;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-[#080b10]/90 backdrop-blur-xl">
+  <nav class="max-w-7xl mx-auto px-5 md:px-8 h-[76px] flex items-center justify-between">
+
+    <a href="#home" class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl border border-[#d6ad65]/40 flex items-center justify-center">
+        <span class="gold-text font-extrabold text-xl">A</span>
+      </div>
+      <span class="font-display font-extrabold tracking-tight text-lg">
+        SkinGrow <span class="gold-text">AI</span>
+      </span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-9 text-sm text-gray-400">
+      <a href="#services" class="hover:text-white transition">Deliverables</a>
+      <a href="#process" class="hover:text-white transition">How it works</a>
+      <a href="#pricing" class="hover:text-white transition">Pricing</a>
+      <a href="#contact" class="hover:text-white transition">Contact</a>
+    </div>
+
+    <div class="hidden md:block">
+      <a href="#contact" class="gold-button px-5 py-3 rounded-lg text-sm font-bold">
+        Get Free Audit <span class="ml-1">↗</span>
+      </a>
+    </div>
+
+    <button id="menuButton" class="md:hidden text-2xl text-white p-2" aria-label="Toggle navigation" aria-expanded="false">
+      ☰
+    </button>
+  </nav>
+
+  <div id="mobileMenu" class="mobile-menu md:hidden border-t border-white/10 bg-[#080b10] px-5 py-5">
+    <div class="flex flex-col gap-5 text-gray-300 text-sm">
+      <a href="#services" class="mobile-link">Deliverables</a>
+      <a href="#process" class="mobile-link">How it works</a>
+      <a href="#pricing" class="mobile-link">Pricing</a>
+      <a href="#contact" class="mobile-link gold-text font-bold">Get Free Audit ↗</a>
+    </div>
+  </div>
+</header>
+
+
+<main>
+
+<!-- HERO -->
+<section id="home" class="relative min-h-[760px] pt-40 pb-24 px-5 overflow-hidden">
+
+  <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+  <div class="absolute -top-40 right-0 w-[650px] h-[650px] hero-glow pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+
+    <div class="max-w-4xl mx-auto text-center">
+
+      <div class="fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d6ad65]/25 bg-[#d6ad65]/[0.07] text-[#e4c58e] text-xs md:text-sm font-semibold mb-9">
+        <span class="w-2 h-2 rounded-full bg-[#d6ad65] animate-pulse"></span>
+        BUILT FOR US SHOPIFY SKINCARE BRANDS
+      </div>
+
+      <h1 class="fade-up delay-1 font-display text-4xl sm:text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight">
+        Turn Store Data Into
+        <span class="gold-text">Conversions.</span>
+        <br class="hidden sm:block">
+        Turn Ad Ideas Into
+        <span class="gold-text">Compliant Scripts.</span>
+      </h1>
+
+      <p class="fade-up delay-2 max-w-2xl mx-auto mt-8 text-gray-400 text-base md:text-lg leading-relaxed">
+        A 48-hour AI-powered growth sprint for ambitious skincare and beauty brands.
+        Get conversion-focused product pages, research-backed ad scripts, and
+        compliance insights — without hiring a full agency.
+      </p>
+
+      <div class="fade-up delay-3 flex flex-col sm:flex-row justify-center gap-4 mt-10">
+
+        <a href="#contact" class="gold-button px-8 py-4 rounded-xl font-bold text-sm md:text-base">
+          Request Custom Audit — $0 Upfront ↗
+        </a>
+
+        <a href="#services" class="outline-button px-8 py-4 rounded-xl font-semibold text-sm md:text-base text-gray-200">
+          Explore Deliverables ↓
+        </a>
+
+      </div>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-x-7 gap-y-3 text-xs text-gray-500">
+        <span>✓ No upfront audit fee</span>
+        <span>✓ Fixed $1,200 sprint</span>
+        <span>✓ Human-reviewed deliverables</span>
+      </div>
+
+    </div>
+
+    <!-- HERO DASHBOARD -->
+    <div class="max-w-4xl mx-auto mt-20 glass rounded-2xl p-5 md:p-8 relative">
+
+      <div class="flex items-center justify-between border-b border-white/[0.07] pb-5 mb-6">
+        <div>
+          <p class="text-xs text-gray-500 uppercase tracking-widest">SkinGrow Intelligence</p>
+          <h3 class="font-display font-bold text-lg mt-1">Growth Sprint Overview</h3>
+        </div>
+        <div class="text-xs text-[#d6ad65] border border-[#d6ad65]/20 rounded-full px-3 py-2">
+          48H WORKFLOW
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+
+        <div class="bg-[#080c13] border border-white/[0.06] rounded-xl p-4">
+          <div class="text-2xl mb-3">⌕</div>
+          <p class="text-2xl font-extrabold gold-text">01</p>
+          <p class="text-xs text-gray-400 mt-1">Market Intelligence</p>
+        </div>
+
+        <div class="bg-[#080c13] border border-white/[0.06] rounded-xl p-4">
+          <div class="text-2xl mb-3">✎</div>
+          <p class="text-2xl font-extrabold gold-text">05</p>
+          <p class="text-xs text-gray-400 mt-1">Product Pages</p>
+        </div>
+
+        <div class="bg-[#080c13] border border-white/[0.06] rounded-xl p-4">
+          <div class="text-2xl mb-3">◈</div>
+          <p class="text-2xl font-extrabold gold-text">15</p>
+          <p class="text-xs text-gray-400 mt-1">Ad Scripts</p>
+        </div>
+
+        <div class="bg-[#080c13] border border-white/[0.06] rounded-xl p-4">
+          <div class="text-2xl mb-3">✓</div>
+          <p class="text-2xl font-extrabold gold-text">01</p>
+          <p class="text-xs text-gray-400 mt-1">Compliance Audit</p>
+        </div>
+
+      </div>
+
+      <p class="text-center text-xs text-gray-600 mt-6">
+        One focused sprint. Four strategic deliverable categories.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- TRUST BAR -->
+<section class="border-y border-white/[0.07] bg-[#0d1119] py-8 px-5">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-7 text-center">
+
+    <div>
+      <p class="font-display text-3xl font-extrabold gold-text">15+</p>
+      <p class="text-xs text-gray-500 mt-2 uppercase tracking-widest">Potential Audit Slots</p>
+    </div>
+
+    <div class="sm:border-x border-white/[0.08]">
+      <p class="font-display text-3xl font-extrabold text-white">48 Hours</p>
+      <p class="text-xs text-gray-500 mt-2 uppercase tracking-widest">Target Delivery Window</p>
+    </div>
+
+    <div>
+      <p class="font-display text-3xl font-extrabold text-white">$0</p>
+      <p class="text-xs text-gray-500 mt-2 uppercase tracking-widest">Upfront Custom Audit</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SERVICES -->
+<section id="services" class="py-28 px-5">
+
+  <div class="max-w-7xl mx-auto">
+
+    <div class="max-w-2xl mb-16">
+      <p class="text-[#d6ad65] text-xs tracking-[.25em] uppercase font-bold mb-5">
+        WHAT YOU GET
+      </p>
+
+      <h2 class="font-display text-3xl md:text-5xl font-extrabold leading-tight">
+        Everything Your Store Needs.
+        <span class="gold-text">One Sprint.</span>
+      </h2>
+
+      <p class="text-gray-400 mt-5 leading-relaxed">
+        We combine market research, multi-model AI analysis, and human review
+        to turn customer insights into practical growth assets.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+
+      <article class="feature-card glass rounded-2xl p-7 md:p-9">
+        <div class="w-12 h-12 rounded-xl bg-[#d6ad65]/10 border border-[#d6ad65]/20 flex items-center justify-center text-2xl mb-7">⌕</div>
+        <p class="text-[#d6ad65] text-xs uppercase tracking-widest font-bold mb-3">DELIVERABLE 01</p>
+        <h3 class="font-display text-xl md:text-2xl font-bold">Competitor & Review Intelligence</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mt-4">Discover what customers actually want, what frustrates them, and where competing brands leave money on the table.</p>
+        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+          <li>✓ Amazon review pain-point extraction</li>
+          <li>✓ Reddit customer sentiment research</li>
+          <li>✓ Competitor positioning analysis</li>
+          <li>✓ Customer objections and buying triggers</li>
+        </ul>
+      </article>
+
+      <article class="feature-card glass rounded-2xl p-7 md:p-9">
+        <div class="w-12 h-12 rounded-xl bg-[#d6ad65]/10 border border-[#d6ad65]/20 flex items-center justify-center text-2xl mb-7">✎</div>
+        <p class="text-[#d6ad65] text-xs uppercase tracking-widest font-bold mb-3">DELIVERABLE 02</p>
+        <h3 class="font-display text-xl md:text-2xl font-bold">5 Rewritten Product Pages</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mt-4">Transform generic product descriptions into persuasive, customer-focused pages built around buying psychology.</p>
+        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+          <li>✓ Conversion-focused headlines</li>
+          <li>✓ Benefit-driven product descriptions</li>
+          <li>✓ Objection-handling copy</li>
+          <li>✓ CTA and offer positioning recommendations</li>
+        </ul>
+      </article>
+
+      <article class="feature-card glass rounded-2xl p-7 md:p-9">
+        <div class="w-12 h-12 rounded-xl bg-[#d6ad65]/10 border border-[#d6ad65]/20 flex items-center justify-center text-2xl mb-7">◈</div>
+        <p class="text-[#d6ad65] text-xs uppercase tracking-widest font-bold mb-3">DELIVERABLE 03</p>
+        <h3 class="font-display text-xl md:text-2xl font-bold">15 TikTok & Meta Ad Scripts</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mt-4">Creative concepts designed around customer pain points, curiosity, product differentiation, and buying intent.</p>
+        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+          <li>✓ Scroll-stopping opening hooks</li>
+          <li>✓ UGC-style creative concepts</li>
+          <li>✓ Problem-solution storytelling</li>
+          <li>✓ Meta and TikTok format adaptation</li>
+        </ul>
+      </article>
+
+      <article class="feature-card glass rounded-2xl p-7 md:p-9">
+        <div class="w-12 h-12 rounded-xl bg-[#d6ad65]/10 border border-[#d6ad65]/20 flex items-center justify-center text-2xl mb-7">✓</div>
+        <p class="text-[#d6ad65] text-xs uppercase tracking-widest font-bold mb-3">DELIVERABLE 04</p>
+        <h3 class="font-display text-xl md:text-2xl font-bold">FTC & Meta Ad Compliance Audit</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mt-4">Identify potentially problematic advertising claims, misleading representations, and policy-related risks.</p>
+        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+          <li>✓ FTC advertising claim review</li>
+          <li>✓ Meta advertising policy screening</li>
+          <li>✓ TikTok advertising policy screening</li>
+          <li>✓ Suggested safer claim alternatives</li>
+        </ul>
+      </article>
+
+    </div>
+
+    <p class="text-xs text-gray-600 mt-7">
+      Deliverables are research and creative recommendations, not guaranteed
+      conversion improvements or legal certification.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- PROCESS -->
+<section id="process" class="py-28 px-5 bg-[#0d1119] border-y border-white/[0.05]">
+
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <p class="text-[#d6ad65] text-xs uppercase tracking-[.25em] font-bold mb-5">THE PROCESS</p>
+      <h2 class="font-display text-3xl md:text-5xl font-extrabold">Simple. Focused. <span class="gold-text">Fast.</span></h2>
+      <p class="text-gray-400 mt-5">No complicated onboarding. No endless agency meetings. Just a clear path from store URL to actionable assets.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="relative glass rounded-2xl p-8">
+        <div class="text-5xl font-extrabold gold-text opacity-70 font-display">01</div>
+        <h3 class="text-xl font-bold mt-7">Submit Your Store URL</h3>
+        <p class="text-sm text-gray-400 leading-relaxed mt-4">Share your Shopify URL, target products, and primary growth challenges. We review your store and prepare a custom preliminary audit.</p>
+        <div class="mt-7 inline-block text-xs text-[#d6ad65] border border-[#d6ad65]/20 px-3 py-2 rounded-full">$0 upfront</div>
+      </div>
+
+      <div class="relative glass rounded-2xl p-8">
+        <div class="text-5xl font-extrabold gold-text opacity-70 font-display">02</div>
+        <h3 class="text-xl font-bold mt-7">48-Hour AI Sprint</h3>
+        <p class="text-sm text-gray-400 leading-relaxed mt-4">Once the scope is approved and the initial payment is received, our research and production workflow begins.</p>
+        <div class="mt-7 inline-block text-xs text-[#d6ad65] border border-[#d6ad65]/20 px-3 py-2 rounded-full">Production phase</div>
+      </div>
+
+      <div class="relative glass rounded-2xl p-8">
+        <div class="text-5xl font-extrabold gold-text opacity-70 font-display">03</div>
+        <h3 class="text-xl font-bold mt-7">Review & Final Delivery</h3>
+        <p class="text-sm text-gray-400 leading-relaxed mt-4">Review your completed assets, receive the final handover, and pay the remaining balance under the agreed terms.</p>
+        <div class="mt-7 inline-block text-xs text-[#d6ad65] border border-[#d6ad65]/20 px-3 py-2 rounded-full">Final delivery</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section id="pricing" class="py-28 px-5">
+
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-14">
+      <p class="text-[#d6ad65] text-xs uppercase tracking-[.25em] font-bold mb-5">TRANSPARENT PRICING</p>
+      <h2 class="font-display text-3xl md:text-5xl font-extrabold">One Sprint. <span class="gold-text">One Fixed Price.</span></h2>
+      <p class="text-gray-400 mt-5">Premium research and creative production without a long-term agency retainer.</p>
+    </div>
+
+    <div class="max-w-xl mx-auto glass border border-[#d6ad65]/30 rounded-3xl p-8 md:p-11 relative overflow-hidden">
+
+      <div class="absolute top-0 right-0 bg-[#d6ad65] text-[#101116] px-5 py-2 text-xs font-extrabold rounded-bl-xl">FIXED PACK</div>
+
+      <p class="text-gray-400 text-sm font-semibold tracking-widest uppercase">SkinGrow Growth Sprint</p>
+
+      <div class="mt-6 flex items-end gap-2">
+        <span class="font-display text-6xl md:text-7xl font-extrabold gold-text">$1,200</span>
+      </div>
+
+      <p class="text-gray-500 text-sm mt-2">One-time payment · No recurring retainer</p>
+
+      <div class="h-px bg-white/10 my-8"></div>
+
+      <div class="space-y-5">
+        <div class="flex justify-between items-center gap-4 text-sm"><span class="text-gray-300">Competitor & review intelligence</span><span class="text-[#d6ad65]">Included</span></div>
+        <div class="flex justify-between items-center gap-4 text-sm"><span class="text-gray-300">5 rewritten product pages</span><span class="text-[#d6ad65]">Included</span></div>
+        <div class="flex justify-between items-center gap-4 text-sm"><span class="text-gray-300">15 advertising scripts</span><span class="text-[#d6ad65]">Included</span></div>
+        <div class="flex justify-between items-center gap-4 text-sm"><span class="text-gray-300">Compliance screening</span><span class="text-[#d6ad65]">Included</span></div>
+      </div>
+
+      <div class="bg-[#d6ad65]/[0.07] border border-[#d6ad65]/20 rounded-xl p-5 mt-9">
+        <p class="text-[#e7c991] text-xs uppercase font-bold tracking-widest">Payment structure</p>
+        <div class="flex justify-between mt-4"><span class="text-gray-300 text-sm">Initial payment</span><span class="font-bold text-white">$600</span></div>
+        <div class="flex justify-between mt-3"><span class="text-gray-300 text-sm">Remaining balance</span><span class="font-bold text-white">$600</span></div>
+        <p class="text-xs text-gray-500 mt-4 leading-relaxed">
+          The custom preliminary audit is free. If you approve the proposed scope, the first $600 payment is due before production begins. The remaining $600 is due under the agreed delivery terms.
+        </p>
+      </div>
+
+      <a href="#contact" class="gold-button flex justify-center items-center w-full rounded-xl py-4 font-bold mt-8">Request My Free Audit ↗</a>
+      <p class="text-center text-xs text-gray-600 mt-5">No payment required to submit your initial request.</p>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="py-28 px-5 bg-[#0d1119] border-t border-white/[0.05]">
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+
+    <div>
+      <p class="text-[#d6ad65] text-xs uppercase tracking-[.25em] font-bold mb-5">LET'S TALK GROWTH</p>
+
+      <h2 class="font-display text-4xl md:text-5xl font-extrabold leading-tight">
+        Your Next Growth Sprint
+        <span class="gold-text">Starts Here.</span>
+      </h2>
+
+      <p class="text-gray-400 mt-6 leading-relaxed">
+        Tell us about your brand. We'll review your store and come back with a preliminary audit and recommendations for your next steps.
+      </p>
+
+      <div class="mt-10 space-y-5">
+
+        <a href="https://t.me/DaniilDomut" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group">
+          <div class="w-12 h-12 rounded-xl border border-[#d6ad65]/20 bg-[#d6ad65]/10 flex items-center justify-center text-xl">↗</div>
+          <div>
+            <p class="text-xs text-gray-500">TELEGRAM</p>
+            <p class="font-semibold group-hover:text-[#d6ad65] transition">@DaniilDomut</p>
+          </div>
+        </a>
+
+        <a href="https://x.com/DaniilDomut" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group">
+          <div class="w-12 h-12 rounded-xl border border-white/10 bg-white/[0.04] flex items-center justify-center text-xl">𝕏</div>
+          <div>
+            <p class="text-xs text-gray-500">X / TWITTER</p>
+            <p class="font-semibold group-hover:text-[#d6ad65] transition">@DaniilDomut</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- LEAD FORM -->
+    <div class="glass rounded-2xl p-7 md:p-9">
+
+      <h3 class="font-display text-2xl font-bold">Request Your Free Audit</h3>
+      <p class="text-sm text-gray-500 mt-2">No commitment. No upfront payment.</p>
+
+      <form id="auditForm" class="mt-8 space-y-5">
+
+        <div>
+          <label for="name" class="block text-xs font-semibold text-gray-400 mb-2">YOUR NAME</label>
+          <input id="name" name="name" type="text" required placeholder="John Smith" class="input-field w-full rounded-lg px-4 py-3 text-sm">
+        </div>
+
+        <div>
+          <label for="email" class="block text-xs font-semibold text-gray-400 mb-2">BUSINESS EMAIL</label>
+          <input id="email" name="email" type="email" required placeholder="john@yourbrand.com" class="input-field w-full rounded-lg px-4 py-3 text-sm">
+        </div>
+
+        <div>
+          <label for="store" class="block text-xs font-semibold text-gray-400 mb-2">SHOPIFY STORE URL</label>
+          <input id="store" name="store" type="url" required placeholder="https://yourbrand.com" class="input-field w-full rounded-lg px-4 py-3 text-sm">
+        </div>
+
+        <div>
+          <label for="revenue" class="block text-xs font-semibold text-gray-400 mb-2">MONTHLY REVENUE</label>
+          <select id="revenue" name="revenue" required class="input-field w-full rounded-lg px-4 py-3 text-sm">
+            <option value="" disabled selected>Select revenue range</option>
+            <option>$50k – $100k</option>
+            <option>$100k – $250k</option>
+            <option>$250k – $500k</option>
+            <option>$500k – $1M</option>
+            <option>$1M+</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="challenge" class="block text-xs font-semibold text-gray-400 mb-2">WHAT IS YOUR BIGGEST CHALLENGE?</label>
+          <textarea id="challenge" name="challenge" rows="3" placeholder="Low conversion rate, ad performance, compliance..." class="input-field w-full rounded-lg px-4 py-3 text-sm resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="gold-button w-full rounded-xl py-4 font-bold text-sm">
+          Submit Audit Request ↗
+        </button>
+
+        <p id="formMessage" class="hidden text-sm text-center text-[#d6ad65]">Opening Telegram...</p>
+
+        <p class="text-[11px] text-center text-gray-600 leading-relaxed">
+          By submitting, you agree to be contacted regarding your audit request. Your information will be included in a Telegram message to our team.
+        </p>
+
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="border-t border-white/[0.07] bg-[#080b10] px-5 py-10">
+
+  <div class="max-w-7xl mx-auto">
+
+    <div class="flex flex-col md:flex-row justify-between gap-8">
+
+      <div>
+        <a href="#home" class="font-display text-xl font-extrabold">
+          SkinGrow <span class="gold-text">AI</span>
+        </a>
+
+        <p class="text-gray-500 text-sm mt-3 max-w-sm leading-relaxed">
+          AI-powered research, conversion copy, and advertising compliance insights for ambitious Shopify beauty brands.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-x-8 gap-y-4 text-sm text-gray-500">
+        <a href="#services" class="hover:text-white">Services</a>
+        <a href="#process" class="hover:text-white">Process</a>
+        <a href="#pricing" class="hover:text-white">Pricing</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+        <a href="https://t.me/DaniilDomut" target="_blank" rel="noopener noreferrer" class="hover:text-white">Telegram</a>
+      </div>
+
+    </div>
+
+    <div class="h-px bg-white/[0.07] my-8"></div>
+
+    <div class="flex flex-col md:flex-row justify-between gap-5 text-xs text-gray-600">
+
+      <p>© <span id="year"></span> SkinGrow AI. All rights reserved.</p>
+
+      <p class="max-w-2xl leading-relaxed">
+        SkinGrow AI provides marketing research, creative production, and advertising policy screening. Services do not constitute legal advice or guarantee advertising approval, account protection, revenue growth, or specific conversion outcomes. FTC and platform policies may change; clients should consult qualified legal counsel for legal compliance determinations.
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+  // Dynamic copyright year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile navigation
+  const menuButton = document.getElementById('menuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuButton.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.textContent = isOpen ? '✕' : '☰';
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.textContent = '☰';
+    });
+  });
+
+  // Lead capture -> Telegram
+  document.getElementById('auditForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const store = document.getElementById('store').value.trim();
+    const revenue = document.getElementById('revenue').value;
+    const challenge = document.getElementById('challenge').value.trim();
+
+    const message = [
+      'NEW SKINGROW AI AUDIT REQUEST',
+      '',
+      'Name: ' + name,
+      'Email: ' + email,
+      'Store: ' + store,
+      'Monthly Revenue: ' + revenue,
+      'Challenge: ' + (challenge || 'Not specified'),
+      '',
+      'Request: Free Custom Audit'
+    ].join('\n');
+
+    const telegramURL = 'https://t.me/DaniilDomut?text=' + encodeURIComponent(message);
+
+    document.getElementById('formMessage').classList.remove('hidden');
+    window.open(telegramURL, '_blank', 'noopener,noreferrer');
+  });
+
+</script>
+
+</body>
+</html>
